@@ -1,0 +1,1500 @@
+/* ==========================================
+   CINDY'S JOURNEY - Apple Glassmorphic Design
+   ========================================== */
+
+/* CSS Variables - Apple Design System */
+:root {
+    /* Colors */
+    --apple-bg: #000000;
+    --apple-bg-secondary: #1d1d1f;
+    --apple-text: #f5f5f7;
+    --apple-text-secondary: #86868b;
+    --apple-blue: #0071e3;
+    --apple-blue-hover: #0077ed;
+    --apple-green: #30d158;
+    --apple-red: #ff453a;
+    --apple-orange: #ff9f0a;
+    --apple-purple: #bf5af2;
+    --apple-pink: #ff375f;
+    --apple-teal: #64d2ff;
+
+    /* Glassmorphism */
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-bg-hover: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    --glass-blur: 20px;
+
+    /* Typography */
+    --font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+    /* Spacing */
+    --section-padding: 120px;
+    --content-max-width: 1200px;
+
+    /* Animation */
+    --transition-fast: 0.2s ease;
+    --transition-medium: 0.4s ease;
+    --transition-slow: 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Reset & Base */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: var(--font-family);
+    background: var(--apple-bg);
+    color: var(--apple-text);
+    line-height: 1.5;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Animated Background */
+.animated-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.gradient-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.5;
+    animation: float 20s ease-in-out infinite;
+}
+
+.orb-1 {
+    width: 600px;
+    height: 600px;
+    background: linear-gradient(135deg, var(--apple-purple), var(--apple-blue));
+    top: -200px;
+    left: -200px;
+    animation-delay: 0s;
+}
+
+.orb-2 {
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(135deg, var(--apple-pink), var(--apple-orange));
+    top: 50%;
+    right: -150px;
+    animation-delay: -5s;
+}
+
+.orb-3 {
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(135deg, var(--apple-teal), var(--apple-green));
+    bottom: -100px;
+    left: 30%;
+    animation-delay: -10s;
+}
+
+.orb-4 {
+    width: 350px;
+    height: 350px;
+    background: linear-gradient(135deg, var(--apple-blue), var(--apple-purple));
+    top: 60%;
+    left: -100px;
+    animation-delay: -15s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    25% {
+        transform: translate(50px, -50px) scale(1.1);
+    }
+    50% {
+        transform: translate(100px, 50px) scale(0.9);
+    }
+    75% {
+        transform: translate(-50px, 100px) scale(1.05);
+    }
+}
+
+/* Loader */
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--apple-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-content {
+    text-align: center;
+}
+
+.apple-logo {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 24px;
+    color: var(--apple-text);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.apple-logo svg {
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.95); }
+}
+
+.loader-text {
+    font-size: 17px;
+    color: var(--apple-text-secondary);
+    margin-bottom: 24px;
+    font-weight: 500;
+}
+
+.loader-bar {
+    width: 200px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.loader-progress {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--apple-blue), var(--apple-purple));
+    border-radius: 2px;
+    animation: loading 2s ease-in-out forwards;
+}
+
+@keyframes loading {
+    0% { width: 0%; }
+    50% { width: 70%; }
+    100% { width: 100%; }
+}
+
+/* Main Content */
+.main-content {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.main-content.hidden {
+    opacity: 0;
+}
+
+/* Glass Card */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: var(--glass-shadow);
+    transition: all var(--transition-medium);
+}
+
+.glass-card:hover {
+    background: var(--glass-bg-hover);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
+}
+
+.glass-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.glass-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 32px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    border-radius: 100px;
+    color: var(--apple-text);
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.glass-button.primary {
+    background: var(--apple-blue);
+    border-color: var(--apple-blue);
+}
+
+.glass-button.primary:hover {
+    background: var(--apple-blue-hover);
+    transform: scale(1.05);
+}
+
+.glass-button:hover {
+    background: var(--glass-bg-hover);
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px;
+    text-align: center;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin-bottom: 60px;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    margin-bottom: 32px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    animation: fadeInDown 1s ease-out;
+}
+
+.badge-icon {
+    font-size: 16px;
+}
+
+.hero-title {
+    margin-bottom: 24px;
+}
+
+.title-line {
+    display: block;
+    font-size: clamp(40px, 10vw, 80px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    animation: fadeInUp 1s ease-out;
+}
+
+.title-name {
+    font-size: clamp(60px, 15vw, 140px);
+    background: linear-gradient(135deg, var(--apple-blue), var(--apple-purple), var(--apple-pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation-delay: 0.2s;
+}
+
+.hero-subtitle {
+    font-size: clamp(18px, 3vw, 24px);
+    color: var(--apple-text-secondary);
+    max-width: 600px;
+    margin: 0 auto 40px;
+    animation: fadeInUp 1s ease-out 0.4s both;
+}
+
+.hero-cta {
+    animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+/* Floating Cards */
+.hero-visual {
+    width: 100%;
+    max-width: 600px;
+    height: 300px;
+    position: relative;
+    animation: fadeIn 1s ease-out 0.8s both;
+}
+
+.floating-cards {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.floating-card {
+    position: absolute;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    animation: floatCard 6s ease-in-out infinite;
+}
+
+.card-emoji {
+    font-size: 24px;
+}
+
+.card-label {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.card-1 {
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.card-2 {
+    top: 5%;
+    right: 10%;
+    animation-delay: -1.5s;
+}
+
+.card-3 {
+    bottom: 20%;
+    left: 15%;
+    animation-delay: -3s;
+}
+
+.card-4 {
+    bottom: 10%;
+    right: 5%;
+    animation-delay: -4.5s;
+}
+
+@keyframes floatCard {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(2deg); }
+}
+
+/* Chapter Sections */
+.chapter-section {
+    min-height: 100vh;
+    padding: var(--section-padding) 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chapter-header {
+    text-align: center;
+    max-width: 800px;
+    margin-bottom: 60px;
+}
+
+.chapter-number {
+    margin-bottom: 24px;
+    color: var(--apple-text-secondary);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+
+.chapter-title {
+    font-size: clamp(32px, 6vw, 56px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, var(--apple-text), var(--apple-text-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.chapter-intro {
+    font-size: 18px;
+    color: var(--apple-text-secondary);
+    line-height: 1.6;
+}
+
+/* Timeline Card */
+.timeline-card {
+    max-width: 600px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.card-icon {
+    width: 200px;
+    height: 150px;
+    margin-bottom: 32px;
+    position: relative;
+}
+
+/* Utah Mountain Scene */
+.mountain-scene {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.mountain {
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+
+.mountain.m1 {
+    left: 10%;
+    border-width: 0 40px 80px 40px;
+    border-color: transparent transparent #4a5568 transparent;
+}
+
+.mountain.m2 {
+    left: 35%;
+    border-width: 0 50px 100px 50px;
+    border-color: transparent transparent #718096 transparent;
+}
+
+.mountain.m3 {
+    left: 55%;
+    border-width: 0 45px 90px 45px;
+    border-color: transparent transparent #5a6777 transparent;
+}
+
+.sun {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--apple-orange), var(--apple-pink));
+    border-radius: 50%;
+    animation: sunGlow 3s ease-in-out infinite;
+}
+
+@keyframes sunGlow {
+    0%, 100% { box-shadow: 0 0 20px var(--apple-orange); }
+    50% { box-shadow: 0 0 40px var(--apple-orange); }
+}
+
+.card-content h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.card-content p {
+    color: var(--apple-text-secondary);
+    line-height: 1.7;
+}
+
+/* Jobs Section */
+.jobs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    max-width: var(--content-max-width);
+    width: 100%;
+}
+
+.job-card {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+.job-icon {
+    width: 100%;
+    height: 160px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* Crime Scene */
+.crime-scene {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.caution-tape {
+    position: absolute;
+    width: 150%;
+    height: 30px;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--apple-orange) 0px,
+        var(--apple-orange) 20px,
+        #000 20px,
+        #000 40px
+    );
+    transform: rotate(-15deg);
+    top: 30%;
+    animation: tapeScroll 10s linear infinite;
+}
+
+@keyframes tapeScroll {
+    0% { background-position: 0 0; }
+    100% { background-position: 80px 0; }
+}
+
+.magnifier {
+    font-size: 48px;
+    z-index: 2;
+    animation: magnify 2s ease-in-out infinite;
+}
+
+@keyframes magnify {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.1) rotate(10deg); }
+}
+
+.evidence-marker {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: var(--apple-orange);
+    color: #000;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    bottom: 20px;
+    left: 30px;
+}
+
+.evidence-marker.m2 {
+    left: auto;
+    right: 40px;
+    bottom: 30px;
+}
+
+/* Construction Scene */
+.construction-scene {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.crane {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+}
+
+.crane-arm {
+    width: 100px;
+    height: 8px;
+    background: var(--apple-orange);
+    transform-origin: right center;
+    animation: craneSwing 4s ease-in-out infinite;
+}
+
+@keyframes craneSwing {
+    0%, 100% { transform: rotate(-10deg); }
+    50% { transform: rotate(10deg); }
+}
+
+.crane-cable {
+    width: 2px;
+    height: 40px;
+    background: #666;
+    position: absolute;
+    left: 10px;
+    top: 8px;
+}
+
+.crane-hook {
+    font-size: 20px;
+    position: absolute;
+    left: 0;
+    top: 50px;
+}
+
+.hard-hat {
+    position: absolute;
+    font-size: 40px;
+    bottom: 40px;
+    left: 30px;
+    animation: hatBounce 1s ease-in-out infinite;
+}
+
+@keyframes hatBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.building-block {
+    position: absolute;
+    background: linear-gradient(135deg, #4a5568, #2d3748);
+    border-radius: 4px;
+}
+
+.building-block.b1 {
+    width: 50px;
+    height: 30px;
+    bottom: 10px;
+    right: 60px;
+}
+
+.building-block.b2 {
+    width: 40px;
+    height: 25px;
+    bottom: 10px;
+    right: 115px;
+}
+
+/* Brighton Ski Scene */
+.ski-resort-scene {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: linear-gradient(180deg, #1a365d 0%, #2c5282 100%);
+    border-radius: 12px;
+}
+
+.ski-mountain {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 80px 120px 80px;
+    border-color: transparent transparent #fff transparent;
+}
+
+.ski-lift {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+}
+
+.lift-cable {
+    width: 100%;
+    height: 2px;
+    background: #666;
+}
+
+.lift-chair {
+    font-size: 24px;
+    position: absolute;
+    top: 5px;
+    animation: liftMove 8s linear infinite;
+}
+
+@keyframes liftMove {
+    0% { left: 0; }
+    100% { left: calc(100% - 30px); }
+}
+
+.snowflake {
+    position: absolute;
+    font-size: 16px;
+    animation: snowFall 3s linear infinite;
+}
+
+.snowflake.sf1 { left: 20%; animation-delay: 0s; }
+.snowflake.sf2 { left: 50%; animation-delay: 1s; }
+.snowflake.sf3 { left: 80%; animation-delay: 2s; }
+
+@keyframes snowFall {
+    0% { top: -20px; opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+}
+
+/* Care Scene */
+.care-scene {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.heart-pulse {
+    width: 150px;
+    height: 50px;
+}
+
+.heart-pulse svg {
+    width: 100%;
+    height: 100%;
+}
+
+.pulse-line {
+    stroke: var(--apple-green);
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+    animation: drawPulse 2s linear infinite;
+}
+
+@keyframes drawPulse {
+    0% { stroke-dashoffset: 200; }
+    100% { stroke-dashoffset: 0; }
+}
+
+.care-heart {
+    font-size: 40px;
+    animation: heartBeat 1s ease-in-out infinite;
+}
+
+@keyframes heartBeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* Job Content */
+.job-content {
+    flex: 1;
+}
+
+.job-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+}
+
+.job-badge.danger { background: rgba(255, 69, 58, 0.2); color: var(--apple-red); }
+.job-badge.warning { background: rgba(255, 159, 10, 0.2); color: var(--apple-orange); }
+.job-badge.info { background: rgba(100, 210, 255, 0.2); color: var(--apple-teal); }
+.job-badge.success { background: rgba(48, 209, 88, 0.2); color: var(--apple-green); }
+
+.job-content h3 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.job-content p {
+    color: var(--apple-text-secondary);
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.job-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-tag {
+    padding: 6px 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 100px;
+    font-size: 12px;
+    color: var(--apple-text-secondary);
+}
+
+/* Adventure Timeline */
+.adventure-timeline {
+    max-width: 700px;
+    width: 100%;
+    position: relative;
+    padding-left: 60px;
+}
+
+.timeline-line {
+    position: absolute;
+    left: 24px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--apple-blue), var(--apple-purple));
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -48px;
+    top: 24px;
+    width: 48px;
+    height: 48px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 2px solid var(--apple-blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.timeline-dot.mistake-dot {
+    border-color: var(--apple-red);
+}
+
+.timeline-content {
+    padding: 24px;
+}
+
+.timeline-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.location-tag {
+    padding: 4px 12px;
+    background: rgba(0, 113, 227, 0.2);
+    color: var(--apple-blue);
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.companion-tag {
+    padding: 4px 12px;
+    background: rgba(191, 90, 242, 0.2);
+    color: var(--apple-purple);
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.mood-tag {
+    padding: 4px 12px;
+    background: rgba(255, 69, 58, 0.2);
+    color: var(--apple-red);
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.timeline-content h3 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.timeline-content p {
+    color: var(--apple-text-secondary);
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+.mistake-card {
+    border-color: rgba(255, 69, 58, 0.3);
+}
+
+.mistake-sticker {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 24px;
+    background: rgba(255, 69, 58, 0.15);
+    border: 2px solid var(--apple-red);
+    border-radius: 8px;
+    transform: rotate(-5deg);
+    margin-top: 16px;
+}
+
+.mistake-sticker span:first-child {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--apple-red);
+    letter-spacing: 0.1em;
+}
+
+.sticker-subtitle {
+    font-size: 10px;
+    color: var(--apple-text-secondary);
+    text-transform: uppercase;
+}
+
+/* Denver Section */
+.denver-showcase {
+    max-width: 800px;
+    width: 100%;
+}
+
+.denver-card {
+    padding: 0;
+    overflow: hidden;
+}
+
+.denver-visual {
+    height: 250px;
+    position: relative;
+    background: linear-gradient(180deg, #1e3a5f 0%, #2c5282 50%, #e2e8f0 100%);
+    overflow: hidden;
+}
+
+.denver-skyline {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    align-items: flex-end;
+}
+
+.denver-skyline .building {
+    background: #2d3748;
+    border-radius: 4px 4px 0 0;
+}
+
+.denver-skyline .b1 { width: 40px; height: 80px; }
+.denver-skyline .b2 { width: 30px; height: 120px; }
+.denver-skyline .b3 { width: 50px; height: 160px; }
+.denver-skyline .b4 { width: 35px; height: 100px; }
+.denver-skyline .b5 { width: 45px; height: 90px; }
+
+.denver-mountains {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+}
+
+.d-mountain {
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+
+.d-mountain.dm1 {
+    left: 10%;
+    border-width: 0 100px 60px 100px;
+    border-color: transparent transparent rgba(255, 255, 255, 0.3) transparent;
+}
+
+.d-mountain.dm2 {
+    right: 15%;
+    border-width: 0 80px 50px 80px;
+    border-color: transparent transparent rgba(255, 255, 255, 0.2) transparent;
+}
+
+.colorado-sun {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--apple-orange), #ffd700);
+    border-radius: 50%;
+    box-shadow: 0 0 40px rgba(255, 159, 10, 0.6);
+}
+
+.mile-high-badge {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    font-size: 12px;
+}
+
+.denver-content {
+    padding: 32px;
+}
+
+.denver-content h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.denver-content p {
+    color: var(--apple-text-secondary);
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+.denver-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.denver-highlights .highlight {
+    font-size: 13px;
+}
+
+/* Home Section */
+.home-celebration {
+    max-width: 800px;
+    width: 100%;
+}
+
+.celebration-card {
+    padding: 48px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.confetti-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    pointer-events: none;
+}
+
+.confetti {
+    position: absolute;
+    font-size: 24px;
+    animation: confettiFall 3s ease-in-out infinite;
+}
+
+.confetti.c1 { left: 10%; animation-delay: 0s; }
+.confetti.c2 { left: 25%; animation-delay: 0.5s; }
+.confetti.c3 { left: 40%; animation-delay: 1s; }
+.confetti.c4 { left: 55%; animation-delay: 1.5s; }
+.confetti.c5 { left: 70%; animation-delay: 2s; }
+.confetti.c6 { left: 85%; animation-delay: 2.5s; }
+
+@keyframes confettiFall {
+    0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(80px) rotate(360deg); opacity: 0; }
+}
+
+.utah-welcome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.welcome-text {
+    font-size: 48px;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--apple-blue), var(--apple-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.beehive {
+    font-size: 40px;
+    animation: beeBuzz 0.5s ease-in-out infinite;
+}
+
+@keyframes beeBuzz {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(3px); }
+}
+
+.home-content h3 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.home-content > p {
+    color: var(--apple-text-secondary);
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 32px;
+}
+
+.friendship-card {
+    padding: 32px;
+    background: rgba(191, 90, 242, 0.1);
+    border-color: rgba(191, 90, 242, 0.2);
+}
+
+.friends-emoji {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.friend {
+    font-size: 48px;
+}
+
+.heart-between {
+    font-size: 32px;
+    animation: heartPulse 1s ease-in-out infinite;
+}
+
+@keyframes heartPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+.friendship-text h4 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--apple-purple);
+}
+
+.friendship-text p {
+    color: var(--apple-text-secondary);
+    margin-bottom: 8px;
+}
+
+.friendship-note {
+    font-size: 14px;
+    font-style: italic;
+}
+
+/* Finale Section */
+.finale-section {
+    min-height: 100vh;
+    padding: var(--section-padding) 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.finale-content {
+    max-width: 900px;
+    width: 100%;
+}
+
+.finale-card {
+    padding: 48px;
+    text-align: center;
+}
+
+.finale-badge {
+    display: inline-block;
+    padding: 8px 20px;
+    background: linear-gradient(135deg, var(--apple-purple), var(--apple-pink));
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+
+.finale-card h2 {
+    font-size: clamp(28px, 5vw, 40px);
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+.finale-card > p {
+    color: var(--apple-text-secondary);
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 16px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 16px;
+    margin: 48px 0;
+}
+
+.stat-item {
+    padding: 24px;
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 36px;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--apple-blue), var(--apple-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: var(--apple-text-secondary);
+}
+
+.made-with-love {
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--glass-border);
+}
+
+.made-with-love p {
+    color: var(--apple-text-secondary);
+    font-size: 15px;
+}
+
+.made-with-love .subtitle {
+    font-size: 13px;
+    font-style: italic;
+    margin-top: 4px;
+}
+
+/* Navigation Dots */
+.nav-dots {
+    position: fixed;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 100;
+}
+
+.nav-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.nav-dot:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(1.2);
+}
+
+.nav-dot.active {
+    background: var(--apple-blue);
+    transform: scale(1.3);
+}
+
+/* Reveal Animations */
+.reveal-card {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal-card.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    :root {
+        --section-padding: 80px;
+    }
+
+    .floating-cards {
+        display: none;
+    }
+
+    .hero-visual {
+        display: none;
+    }
+
+    .jobs-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .adventure-timeline {
+        padding-left: 50px;
+    }
+
+    .timeline-dot {
+        left: -38px;
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
+    }
+
+    .timeline-line {
+        left: 18px;
+    }
+
+    .nav-dots {
+        right: 12px;
+    }
+
+    .nav-dot {
+        width: 8px;
+        height: 8px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .celebration-card,
+    .finale-card {
+        padding: 32px 24px;
+    }
+
+    .friends-emoji .friend {
+        font-size: 36px;
+    }
+
+    .heart-between {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .chapter-section {
+        padding: 60px 16px;
+    }
+
+    .job-card {
+        padding: 24px;
+    }
+
+    .job-icon {
+        height: 140px;
+    }
+
+    .timeline-content {
+        padding: 20px;
+    }
+
+    .denver-content {
+        padding: 24px;
+    }
+
+    .stat-item {
+        padding: 16px;
+    }
+
+    .stat-number {
+        font-size: 28px;
+    }
+}
+
+/* iOS Safari Optimizations */
+@supports (-webkit-touch-callout: none) {
+    .glass-card,
+    .glass-pill,
+    .glass-button {
+        -webkit-backdrop-filter: blur(var(--glass-blur));
+    }
+
+    body {
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .hero-section,
+    .chapter-section,
+    .finale-section {
+        min-height: -webkit-fill-available;
+    }
+}
+
+/* Safe Area Insets for iPhone X+ */
+@supports (padding: max(0px)) {
+    body {
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
+    }
+
+    .nav-dots {
+        right: max(24px, env(safe-area-inset-right));
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    .gradient-orb {
+        animation: none;
+    }
+}
