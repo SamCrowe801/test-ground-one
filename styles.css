@@ -1748,3 +1748,81 @@ body {
 .utah-welcome .welcome-text {
     font-size: clamp(28px, 6vw, 42px);
 }
+
+/* ==========================================
+   MORE CHAOS SECTION - Page Links
+   ========================================== */
+
+.more-chaos-section {
+    margin: 48px 0;
+    text-align: center;
+}
+
+.more-chaos-section h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, var(--apple-pink), var(--apple-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.more-chaos-intro {
+    font-size: 16px;
+    color: var(--apple-text-secondary);
+    margin-bottom: 24px;
+}
+
+.chaos-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.chaos-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+.chaos-link:hover {
+    transform: translateY(-8px) scale(1.02);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.chaos-icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+    animation: chaosIconBounce 2s ease-in-out infinite;
+}
+
+.chaos-link:nth-child(2) .chaos-icon {
+    animation-delay: 0.5s;
+}
+
+@keyframes chaosIconBounce {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-8px) rotate(-5deg); }
+    75% { transform: translateY(-8px) rotate(5deg); }
+}
+
+.chaos-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--apple-text);
+}
+
+.chaos-desc {
+    font-size: 13px;
+    color: var(--apple-text-secondary);
+    text-align: center;
+    line-height: 1.5;
+}
