@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#1d1d1f">
+    <title>Cindy: A Life Journey</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌟</text></svg>">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+        <div class="gradient-orb orb-4"></div>
+    </div>
+
+    <!-- Loading Screen -->
+    <div id="loader" class="loader">
+        <div class="loader-content">
+            <div class="apple-logo">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                </svg>
+            </div>
+            <div class="loader-text">Loading Cindy's Journey...</div>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main id="main-content" class="main-content hidden">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <div class="hero-badge glass-card">
+                    <span class="badge-icon">⭐</span>
+                    <span>Introducing</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="title-line">Meet</span>
+                    <span class="title-line title-name">Cindy</span>
+                </h1>
+                <p class="hero-subtitle">A story of adventure, resilience, and finding your way home.</p>
+                <div class="hero-cta">
+                    <button class="glass-button primary" onclick="scrollToSection('chapter-1')">
+                        <span>Begin Journey</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 5v14M19 12l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-cards">
+                    <div class="floating-card card-1 glass-card">
+                        <span class="card-emoji">🏔️</span>
+                        <span class="card-label">Utah Native</span>
+                    </div>
+                    <div class="floating-card card-2 glass-card">
+                        <span class="card-emoji">🔍</span>
+                        <span class="card-label">Crime Scene Pro</span>
+                    </div>
+                    <div class="floating-card card-3 glass-card">
+                        <span class="card-emoji">🏗️</span>
+                        <span class="card-label">Builder</span>
+                    </div>
+                    <div class="floating-card card-4 glass-card">
+                        <span class="card-emoji">✨</span>
+                        <span class="card-label">Adventurer</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter 1: Utah Origins -->
+        <section id="chapter-1" class="chapter-section">
+            <div class="chapter-header">
+                <div class="chapter-number glass-pill">Chapter 1</div>
+                <h2 class="chapter-title">The Utah Beginning</h2>
+                <p class="chapter-intro">Every great story starts somewhere. For Cindy, it started in the majestic mountains of Utah.</p>
+            </div>
+            <div class="chapter-content">
+                <div class="timeline-card glass-card reveal-card">
+                    <div class="card-icon utah-icon">
+                        <div class="mountain-scene">
+                            <div class="mountain m1"></div>
+                            <div class="mountain m2"></div>
+                            <div class="mountain m3"></div>
+                            <div class="sun"></div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Born & Raised</h3>
+                        <p>Growing up in Utah, Cindy developed a love for adventure and an impressive ability to handle literally <em>anything</em>. Little did she know, this would come in handy...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter 2: The Jobs -->
+        <section id="chapter-2" class="chapter-section jobs-section">
+            <div class="chapter-header">
+                <div class="chapter-number glass-pill">Chapter 2</div>
+                <h2 class="chapter-title">The Resume of Legends</h2>
+                <p class="chapter-intro">Cindy's job history reads like a choose-your-own-adventure book... if the author was slightly unhinged.</p>
+            </div>
+
+            <div class="jobs-grid">
+                <!-- Crime Scene Cleanup -->
+                <div class="job-card glass-card reveal-card">
+                    <div class="job-icon crime-icon">
+                        <div class="crime-scene">
+                            <div class="caution-tape"></div>
+                            <div class="magnifier">🔍</div>
+                            <div class="evidence-marker">1</div>
+                            <div class="evidence-marker m2">2</div>
+                        </div>
+                    </div>
+                    <div class="job-content">
+                        <div class="job-badge danger">Hardcore</div>
+                        <h3>Crime Scene Cleanup</h3>
+                        <p>Yes, you read that right. While most people can barely handle a spider, Cindy was out here cleaning up <em>actual crime scenes</em>. Nerves of absolute steel. 🦸‍♀️</p>
+                        <div class="job-skills">
+                            <span class="skill-tag">Fearless</span>
+                            <span class="skill-tag">Detail-Oriented</span>
+                            <span class="skill-tag">Iron Stomach</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Construction -->
+                <div class="job-card glass-card reveal-card">
+                    <div class="job-icon construction-icon">
+                        <div class="construction-scene">
+                            <div class="crane">
+                                <div class="crane-arm"></div>
+                                <div class="crane-cable"></div>
+                                <div class="crane-hook">🪝</div>
+                            </div>
+                            <div class="hard-hat">🪖</div>
+                            <div class="building-block b1"></div>
+                            <div class="building-block b2"></div>
+                        </div>
+                    </div>
+                    <div class="job-content">
+                        <div class="job-badge warning">Heavy Lifting</div>
+                        <h3>Construction</h3>
+                        <p>From crime scenes to construction sites! Cindy said "I'll build things instead of... well, you know." Power tools? No problem. Heavy machinery? Child's play. 💪</p>
+                        <div class="job-skills">
+                            <span class="skill-tag">Strong AF</span>
+                            <span class="skill-tag">Tool Master</span>
+                            <span class="skill-tag">Team Player</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Brighton Housekeeping -->
+                <div class="job-card glass-card reveal-card">
+                    <div class="job-icon brighton-icon">
+                        <div class="ski-resort-scene">
+                            <div class="ski-mountain"></div>
+                            <div class="ski-lift">
+                                <div class="lift-cable"></div>
+                                <div class="lift-chair">🚡</div>
+                            </div>
+                            <div class="snowflake sf1">❄️</div>
+                            <div class="snowflake sf2">❄️</div>
+                            <div class="snowflake sf3">❄️</div>
+                        </div>
+                    </div>
+                    <div class="job-content">
+                        <div class="job-badge info">Cozy Vibes</div>
+                        <h3>Brighton Resort</h3>
+                        <p>Housekeeping at Brighton! Making ski resort rooms sparkle while probably daydreaming about hitting the slopes. Work hard, ski harder? 🎿</p>
+                        <div class="job-skills">
+                            <span class="skill-tag">Spotless</span>
+                            <span class="skill-tag">Efficient</span>
+                            <span class="skill-tag">Mountain Vibes</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rocky Mountain Care -->
+                <div class="job-card glass-card reveal-card">
+                    <div class="job-icon care-icon">
+                        <div class="care-scene">
+                            <div class="heart-pulse">
+                                <svg viewBox="0 0 100 50">
+                                    <path class="pulse-line" d="M0,25 L20,25 L25,10 L35,40 L45,20 L50,25 L100,25" fill="none" stroke="currentColor" stroke-width="3"/>
+                                </svg>
+                            </div>
+                            <div class="care-heart">💖</div>
+                        </div>
+                    </div>
+                    <div class="job-content">
+                        <div class="job-badge success">Heartwarming</div>
+                        <h3>Rocky Mountain Care Center</h3>
+                        <p>Showing that big heart! From intense jobs to caring for others at Rocky Mountain Care Center. Plot twist: Cindy actually has a soft side! 🥹</p>
+                        <div class="job-skills">
+                            <span class="skill-tag">Compassionate</span>
+                            <span class="skill-tag">Patient</span>
+                            <span class="skill-tag">Reliable</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter 3: The PA Adventure -->
+        <section id="chapter-3" class="chapter-section adventure-section">
+            <div class="chapter-header">
+                <div class="chapter-number glass-pill">Chapter 3</div>
+                <h2 class="chapter-title">The Great Migration</h2>
+                <p class="chapter-intro">Plot twist incoming! Cindy decides Utah isn't enough. Time for a cross-country adventure!</p>
+            </div>
+
+            <div class="adventure-timeline">
+                <div class="timeline-line"></div>
+
+                <div class="timeline-item reveal-card">
+                    <div class="timeline-dot">
+                        <span>🚗</span>
+                    </div>
+                    <div class="timeline-content glass-card">
+                        <div class="timeline-header">
+                            <span class="location-tag">Pennsylvania</span>
+                            <span class="companion-tag">With Mollie! 👯‍♀️</span>
+                        </div>
+                        <h3>Eastward Bound</h3>
+                        <p>Cindy packs up and heads to Pennsylvania with her friend Mollie. New state, new adventures, new... cheese steaks? (That's Philly, but close enough! 🥪)</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal-card">
+                    <div class="timeline-dot mistake-dot">
+                        <span>😬</span>
+                    </div>
+                    <div class="timeline-content glass-card mistake-card">
+                        <div class="timeline-header">
+                            <span class="location-tag">Still Pennsylvania</span>
+                            <span class="mood-tag">Uh oh...</span>
+                        </div>
+                        <h3>The Realization™</h3>
+                        <p>Narrator: <em>"It was, in fact, a mistake."</em></p>
+                        <p>Sometimes you have to go 2,000 miles to realize that maybe, just maybe, you left your heart in the mountains. 🏔️💔</p>
+                        <div class="mistake-sticker">
+                            <span>MISTAKE</span>
+                            <span class="sticker-subtitle">certified moment</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter 4: Denver Detour -->
+        <section id="chapter-4" class="chapter-section denver-section">
+            <div class="chapter-header">
+                <div class="chapter-number glass-pill">Chapter 4</div>
+                <h2 class="chapter-title">The Denver Detour</h2>
+                <p class="chapter-intro">Not quite ready to go home, Cindy makes a pit stop in the Mile High City.</p>
+            </div>
+
+            <div class="denver-showcase">
+                <div class="denver-card glass-card reveal-card">
+                    <div class="denver-visual">
+                        <div class="denver-skyline">
+                            <div class="building b1"></div>
+                            <div class="building b2"></div>
+                            <div class="building b3"></div>
+                            <div class="building b4"></div>
+                            <div class="building b5"></div>
+                        </div>
+                        <div class="denver-mountains">
+                            <div class="d-mountain dm1"></div>
+                            <div class="d-mountain dm2"></div>
+                        </div>
+                        <div class="colorado-sun"></div>
+                        <div class="mile-high-badge glass-pill">
+                            <span>📍 5,280 ft</span>
+                        </div>
+                    </div>
+                    <div class="denver-content">
+                        <h3>Colorado Adventures</h3>
+                        <p>Denver: Close enough to mountains to feel at home, far enough from Utah to still feel like an adventure. Cindy explored the Mile High City, probably discovered some great breweries, and had time to think about what really matters...</p>
+                        <div class="denver-highlights">
+                            <div class="highlight glass-pill">🍺 Craft Beer</div>
+                            <div class="highlight glass-pill">🏔️ Mountain Views</div>
+                            <div class="highlight glass-pill">🌅 Sunsets</div>
+                            <div class="highlight glass-pill">🤔 Soul Searching</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter 5: Coming Home -->
+        <section id="chapter-5" class="chapter-section home-section">
+            <div class="chapter-header">
+                <div class="chapter-number glass-pill">Chapter 5</div>
+                <h2 class="chapter-title">Welcome Home</h2>
+                <p class="chapter-intro">The prodigal bestie returns! 🎉</p>
+            </div>
+
+            <div class="home-celebration">
+                <div class="celebration-card glass-card reveal-card">
+                    <div class="confetti-container">
+                        <div class="confetti c1">🎉</div>
+                        <div class="confetti c2">🎊</div>
+                        <div class="confetti c3">✨</div>
+                        <div class="confetti c4">🌟</div>
+                        <div class="confetti c5">💖</div>
+                        <div class="confetti c6">🎉</div>
+                    </div>
+
+                    <div class="home-content">
+                        <div class="utah-welcome">
+                            <div class="welcome-text">UTAH</div>
+                            <div class="beehive">🐝</div>
+                        </div>
+
+                        <h3>Back Where She Belongs</h3>
+                        <p>After all the adventures, all the jobs, all the miles traveled... Cindy decided there's no place like home. Utah called, and she answered! 📞🏔️</p>
+
+                        <div class="friendship-card glass-card">
+                            <div class="friends-emoji">
+                                <span class="friend f1">👩</span>
+                                <span class="heart-between">💕</span>
+                                <span class="friend f2">👩</span>
+                            </div>
+                            <div class="friendship-text">
+                                <h4>Cassadie is THRILLED</h4>
+                                <p>"She has her best (only) friend back!" 😂</p>
+                                <p class="friendship-note">BFFs reunited. Utah will never be the same. 🔥</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Finale -->
+        <section id="finale" class="finale-section">
+            <div class="finale-content">
+                <div class="finale-card glass-card">
+                    <div class="finale-badge">The End... or is it? 🤔</div>
+                    <h2>Cindy's Story Continues</h2>
+                    <p>From crime scenes to construction sites, ski resorts to care centers, Pennsylvania to Denver and back again... Cindy has proven that life is about the journey, not the destination.</p>
+                    <p>But let's be real, the destination is definitely Utah with her bestie. 🏔️👯‍♀️</p>
+
+                    <div class="stats-grid">
+                        <div class="stat-item glass-card">
+                            <span class="stat-number">4+</span>
+                            <span class="stat-label">Wild Jobs</span>
+                        </div>
+                        <div class="stat-item glass-card">
+                            <span class="stat-number">3</span>
+                            <span class="stat-label">States Conquered</span>
+                        </div>
+                        <div class="stat-item glass-card">
+                            <span class="stat-number">2,000+</span>
+                            <span class="stat-label">Miles Traveled</span>
+                        </div>
+                        <div class="stat-item glass-card">
+                            <span class="stat-number">1</span>
+                            <span class="stat-label">True Home</span>
+                        </div>
+                    </div>
+
+                    <div class="made-with-love">
+                        <p>Made with 💖 by Cassadie</p>
+                        <p class="subtitle">(Who is just happy to have her friend back)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation Dots -->
+        <nav class="nav-dots">
+            <button class="nav-dot active" data-section="hero" aria-label="Hero"></button>
+            <button class="nav-dot" data-section="chapter-1" aria-label="Chapter 1"></button>
+            <button class="nav-dot" data-section="chapter-2" aria-label="Chapter 2"></button>
+            <button class="nav-dot" data-section="chapter-3" aria-label="Chapter 3"></button>
+            <button class="nav-dot" data-section="chapter-4" aria-label="Chapter 4"></button>
+            <button class="nav-dot" data-section="chapter-5" aria-label="Chapter 5"></button>
+            <button class="nav-dot" data-section="finale" aria-label="Finale"></button>
+        </nav>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
