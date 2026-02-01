@@ -1,0 +1,23 @@
+# Cloudflare Pages Configuration
+# https://developers.cloudflare.com/pages/functions/wrangler-configuration/
+
+name = "cindy-journey"
+compatibility_date = "2024-01-01"
+
+# Pages configuration
+pages_build_output_dir = "."
+
+# No build step needed - static site
+[build]
+command = ""
+
+# Environment variables (if needed)
+[vars]
+
+# Production environment
+[env.production]
+name = "cindy-journey"
+
+# Preview environment
+[env.preview]
+name = "cindy-journey-preview"
